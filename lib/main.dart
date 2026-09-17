@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sprints_project/routes/route_name.dart';
-import 'package:sprints_project/routes/routs.dart';
+import 'package:sprints_project/routes/routes.dart';
 
 void main() {
   runApp(const MyApp());

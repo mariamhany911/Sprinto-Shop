@@ -22,21 +22,33 @@ class WelcomeScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    SizedBox(
+                    Container(
                       width: 150,
                       height: 150,
+                      clipBehavior: Clip.antiAlias,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
                       child: Image.network(
                         'https://m.media-amazon.com/images/I/711X0g9zd5L._AC_UF894,1000_QL80_.jpg',
+                        fit: BoxFit.cover,
                       ),
                     ),
-                    SizedBox(
+                    Container(
                       width: 150,
                       height: 150,
-                      child: Image.asset('lib/assets/Camera_Accessories.jpg'),
+                      clipBehavior: Clip.antiAlias,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Image.asset(
+                        'lib/assets/Camera_Accessories.jpg',
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ],
                 ),
-                SizedBox(height: 100,),
+                SizedBox(height: 100),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -45,15 +57,23 @@ class WelcomeScreen extends StatelessWidget {
                         Navigator.pushNamed(context, RouteName.signUpRoute);
                       },
                       style: ButtonStyle(
-                        backgroundColor: WidgetStatePropertyAll(const Color.fromARGB(255, 10, 84, 145))
+                        backgroundColor: WidgetStatePropertyAll(
+                          const Color.fromARGB(255, 10, 84, 145),
+                        ),
                       ),
-                      child: Text("Sign Up",style: TextStyle(color: Colors.white),),
+                      child: Text(
+                        "Sign Up",
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
                     OutlinedButton(
                       onPressed: () {
                         Navigator.pushNamed(context, RouteName.loginRoute);
                       },
-                      child: Text("Login",style: TextStyle(color: Colors.white)),
+                      child: Text(
+                        "Login",
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ],
                 ),
