@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:sprints_project/routes/route_name.dart';
+import 'package:sprints_project/widgets/change_lang.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -41,7 +43,10 @@ class _SignUpScreenState extends State<SignUpScreen> with SingleTickerProviderSt
     return FadeTransition(
       opacity: _fadeAnimation,
       child: Scaffold(
-        appBar: AppBar(title: Text("Sign Up")),
+        appBar: AppBar(title: Text(tr('sign_up')),
+      actions: [
+        ChangeLang()
+      ],),
         body: Center(
           child: SingleChildScrollView(
             child: Container(
@@ -56,21 +61,21 @@ class _SignUpScreenState extends State<SignUpScreen> with SingleTickerProviderSt
                 key: _formKey,
                 child: Column(
                   children: [
-                    Text("Welcome!",style: TextStyle(fontWeight:FontWeight.bold,fontSize: 25),),
+                    Text("${tr('welcome')}!",style: TextStyle(fontWeight:FontWeight.bold,fontSize: 25),),
                     SizedBox(height: 30),
             
                     TextFormField(
                       controller: _nameController,
                       validator: (value) {
-                        if (value == null) {
-                          return "you must fill this field";
+                        if (value!.isEmpty) {
+                          return tr("empty_field");
                         } if (value.substring(0,1) != value.substring(0,1).toUpperCase()) {
-                          return "First letter must be uppercase";
+                          return tr('name_val');
                         }
                         return null;
                       },
                       decoration: InputDecoration(
-                        labelText: "Full Name",
+                        labelText: tr('name'),
                         border: OutlineInputBorder(),
                       ),
                     ),
@@ -78,15 +83,15 @@ class _SignUpScreenState extends State<SignUpScreen> with SingleTickerProviderSt
                     TextFormField(
                       controller: _emailController,
                       validator: (value) {
-                        if (value == null) {
-                          return "you must fill this field";
+                        if (value!.isEmpty) {
+                          return tr("empty_field");
                         }  if (!value.contains("@")) {
-                          return "Email must contain '@'";
+                          return tr('email_val');
                         }
                         return null;
                       },
                       decoration: InputDecoration(
-                        labelText: "Email",
+                        labelText: tr('email'),
                         border: OutlineInputBorder(),
                       ),
                     ),
@@ -94,16 +99,16 @@ class _SignUpScreenState extends State<SignUpScreen> with SingleTickerProviderSt
                     TextFormField(
                       controller: _passController,
                       validator: (value) {
-                        if (value == null) {
-                          return "you must fill this field";
+                        if (value!.isEmpty) {
+                          return tr("empty_field");
                         }  if (value.length < 6) {
-                          return "Password must be greater than 6 characters";
+                          return tr('pass_val');
                         }
                         return null;
                       },
                       obscureText: hiddenContent,
                       decoration: InputDecoration(
-                        labelText: "Password",
+                        labelText: tr('pass'),
                         border: OutlineInputBorder(),
                         suffixIcon: IconButton(
                           onPressed: () {
@@ -124,16 +129,16 @@ class _SignUpScreenState extends State<SignUpScreen> with SingleTickerProviderSt
                     TextFormField(
                       controller: _confirmPassController,
                       validator: (value) {
-                        if (value == null) {
-                          return "you must fill this field";
+                        if (value!.isEmpty) {
+                          return tr("empty_field");
                         }  if (value != _passController.text) {
-                          return "Password must be matched";
+                          return tr('confirm_pass_val');
                         }
                         return null;
                       },
                       obscureText: hiddenContent2,
                       decoration: InputDecoration(
-                        labelText: "Confirm Password",
+                        labelText: tr('confirm_pass'),
                         border: OutlineInputBorder(),
                         suffixIcon: IconButton(
                           onPressed: () {
@@ -158,8 +163,8 @@ class _SignUpScreenState extends State<SignUpScreen> with SingleTickerProviderSt
                           context: context,
                           builder: (dialogContext) {
                             return AlertDialog(
-                              title: Text("Success"),
-                              content: Text("Account created successfully"),
+                              title: Text(tr('success')),
+                              content: Text(tr('sign_up_success')),
                               actions: [
                                 ElevatedButton(
                                   onPressed: () async{
@@ -175,14 +180,14 @@ class _SignUpScreenState extends State<SignUpScreen> with SingleTickerProviderSt
                                     );
                                   },
                                   style: ButtonStyle(backgroundColor: WidgetStatePropertyAll(Color.fromARGB(255, 10, 84, 145))),
-                                  child: Text("Close",style: TextStyle(color: Colors.white),),
+                                  child: Text(tr('close'),style: TextStyle(color: Colors.white),),
                                 ),
                               ],
                             );
                           },
                         );}
                       },
-                      child: Text("Submit",style: TextStyle(color: Colors.white)),
+                      child: Text( tr('submit'),style: TextStyle(color: Colors.white)),
                     ),
                   ],
                 ),

@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:sprints_project/routes/route_name.dart';
+import 'package:sprints_project/widgets/change_lang.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -39,7 +41,10 @@ class _LoginScreenState extends State<LoginScreen>
     return FadeTransition(
       opacity: _fadeAnimation,
       child: Scaffold(
-        appBar: AppBar(title: Text("Login")),
+        appBar: AppBar(title: Text(tr('login')),
+      actions: [
+        ChangeLang()
+      ],),
         body: Center(
           child: SingleChildScrollView(
             child: Container(
@@ -55,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen>
                 child: Column(
                   children: [
                     Text(
-                      "Welcome back !",
+                      "${tr('welcome')}!",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 25,
@@ -66,16 +71,16 @@ class _LoginScreenState extends State<LoginScreen>
                     TextFormField(
                       controller: _emailController,
                       validator: (value) {
-                        if (value == null) {
-                          return "you must fill this field";
+                        if (value!.isEmpty) {
+                          return tr("empty_field");
                         }
                         if (!value.contains("@")) {
-                          return "Email must contain '@'";
+                          return tr('email_val');
                         }
                         return null;
                       },
                       decoration: InputDecoration(
-                        labelText: "Email",
+                        labelText: tr('email'),
                         border: OutlineInputBorder(),
                       ),
                     ),
@@ -83,17 +88,17 @@ class _LoginScreenState extends State<LoginScreen>
                     TextFormField(
                       controller: _passController,
                       validator: (value) {
-                        if (value == null) {
-                          return "you must fill this field";
+                        if (value!.isEmpty) {
+                          return tr("empty_field");
                         }
                         if (value.length < 6) {
-                          return "Password must be greater than 6 characters";
+                          return tr('pass_val');
                         }
                         return null;
                       },
                       obscureText: hiddenContent,
                       decoration: InputDecoration(
-                        labelText: "Password",
+                        labelText: tr('pass'),
                         border: OutlineInputBorder(),
                         suffixIcon: IconButton(
                           onPressed: () {
@@ -117,8 +122,8 @@ class _LoginScreenState extends State<LoginScreen>
                             context: context,
                             builder: (dialogContext) {
                               return AlertDialog(
-                                title: Text("Success"),
-                                content: Text("Account login successfully"),
+                                title: Text(tr('success')),
+                                content: Text(tr('login_success')),
                                 actions: [
                                   ElevatedButton(
                                     onPressed: () async {
@@ -139,7 +144,7 @@ class _LoginScreenState extends State<LoginScreen>
                                       ),
                                     ),
                                     child: Text(
-                                      "Close",
+                                      tr('close'),
                                       style: TextStyle(color: Colors.white),
                                     ),
                                   ),
@@ -150,7 +155,7 @@ class _LoginScreenState extends State<LoginScreen>
                         }
                       },
                       child: Text(
-                        "Submit",
+                        tr('submit'),
                         style: TextStyle(color: Colors.white),
                       ),
                     ),

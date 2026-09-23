@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:sprints_project/routes/route_name.dart';
+import 'package:sprints_project/widgets/change_lang.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -7,12 +9,16 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Sprinto shop")),
+      appBar: AppBar(title: Text("Sprinto shop"),
+      actions: [
+        ChangeLang()
+      ],
+      ),
       body: Column(
         children: [
           SizedBox(height: 80),
           Text(
-            "Welcome to our \n Camera shop",
+            tr('welcome_screen'),
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
           ),
           Expanded(
@@ -42,7 +48,7 @@ class WelcomeScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(15),
                       ),
                       child: Image.asset(
-                        'lib/assets/Camera_Accessories.jpg',
+                        'assets/images/Camera_Accessories.jpg',
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -62,7 +68,7 @@ class WelcomeScreen extends StatelessWidget {
                         ),
                       ),
                       child: Text(
-                        "Sign Up",
+                        tr('sign_up'),
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
@@ -71,7 +77,7 @@ class WelcomeScreen extends StatelessWidget {
                         Navigator.pushNamed(context, RouteName.loginRoute);
                       },
                       child: Text(
-                        "Login",
+                        tr('login'),
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
