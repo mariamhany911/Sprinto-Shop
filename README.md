@@ -34,11 +34,11 @@ All main UI texts, product sections, offers, and buttons are localized.
 ## Project Structure
 
 lib/
+├── main.dart
 ├── models/
 ├── routes/
 ├── screens/
 └── widgets/
-└── main.dart
 
 assets/
 ├── images/
@@ -57,52 +57,65 @@ Make sure you have Flutter installed on your machine.
 ### Installation
 
 1. Clone the repository:
-git clone YOUR_GITHUB_REPOSITORY_LINK
 
+git clone https://github.com/mariamhany911/Sprinto-Shop.git
 
 2. Navigate to the project folder:
+
 cd sprints_project
 
 
 3. Install dependencies:
+
 flutter pub get
 
 
 4. Run the application:
+
 flutter run
+
 
 ## Screenshots
 
 ### Welcome Screen
 
-![Welcome Screen_en](screenshots/welcomeScreen_en.jpg)
-![Welcome Screen_ar](screenshots/welcomeScreen_ar.jpg)
+![Welcome Screen EN](screenshots/welcomeScreen_en.jpg)
+
+![Welcome Screen AR](screenshots/welcomeScreen_ar.jpg)
 
 ### Login / Sign Up
 
-![Sign Up_en](screenshots/signUp_en.jpg)
-![Sign Up_ar](screenshots/signUp_ar.jpg)
-![Login_en](screenshots/login.jpg)
-![validation](screenshots/validation.jpg)
+![Sign Up EN](screenshots/signUp_en.jpg)
+
+![Sign Up AR](screenshots/signUp_ar.jpg)
+
+![Login EN](screenshots/login.jpg)
+
+![Validation](screenshots/validation.jpg)
 
 ### Success Dialog
 
-![Dialog_en](screenshots/Dialog_en.jpg)
-![Dialog_ar](screenshots/Dialog_ar.jpg)
+![Dialog EN](screenshots/Dialog_en.jpg)
+
+![Dialog AR](screenshots/Dialog_ar.jpg)
 
 ### Home Screen
 
-![Home Screen_en](screenshots/homeScreen_en1.jpg)
-![Home Screen_en](screenshots/homeScreen_en2.jpg)
-![Home Screen_en](screenshots/homeScreen_en3.jpg)
-![Home Screen_ar](screenshots/homeScreen_ar1.jpg)
-![Home Screen_ar](screenshots/homeScreen_ar2.jpg)
+![Home Screen EN](screenshots/homeScreen_en1.jpg)
 
-### Added snackBar
+![Home Screen EN](screenshots/homeScreen_en2.jpg)
 
-![snackBar_en](screenshots/snackBar_en.jpg)
-![snackBar_ar](screenshots/snackBar_ar.jpg)
+![Home Screen EN](screenshots/homeScreen_en3.jpg)
 
+![Home Screen AR](screenshots/homeScreen_ar1.jpg)
+
+![Home Screen AR](screenshots/homeScreen_ar2.jpg)
+
+### Added SnackBar
+
+![SnackBar EN](screenshots/snackBar_en.jpg)
+
+![SnackBar AR](screenshots/snackBar_ar.jpg)
 
 ## Author
 
