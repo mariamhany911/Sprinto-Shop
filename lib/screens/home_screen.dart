@@ -18,6 +18,7 @@ class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _fadeAnimation;
+  int _currentPhoto = 0;
 
   @override
   void initState() {
@@ -78,6 +79,11 @@ class _HomeScreenState extends State<HomeScreen>
                   height: MediaQuery.of(context).size.height * .25,
                   width: MediaQuery.of(context).size.width * .75,
                   child: PageView(
+                    onPageChanged: (index) {
+                      setState(() {
+                        _currentPhoto = index;
+                      });
+                    },
                     children: [
                       Stack(
                         alignment: Alignment.center,
@@ -144,6 +150,22 @@ class _HomeScreenState extends State<HomeScreen>
                     ],
                   ),
                 ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(3, (index) {
+                  return Container(
+                    margin: EdgeInsets.symmetric(horizontal: 4),
+                    width:  11,
+                    height: 8,
+                    decoration: BoxDecoration(
+                      color: _currentPhoto == index
+                          ? Colors.blue
+                          : Colors.grey.shade300,
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                  );
+                }),
               ),
               GridView.builder(
                 shrinkWrap: true,
