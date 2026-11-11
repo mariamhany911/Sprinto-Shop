@@ -62,7 +62,7 @@ git clone https://github.com/mariamhany911/Sprinto-Shop.git
 
 2. Navigate to the project folder:
 
-cd sprints_project
+cd Sprinto-Shop
 
 
 3. Install dependencies:

@@ -9,7 +9,7 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Sprinto shop"),
+      appBar: AppBar(title: Text(tr('shop_name')),
       actions: [
         ChangeLang()
       ],
